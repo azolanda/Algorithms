@@ -11,7 +11,15 @@ public class MainCreateTree {
         newTree.add(42);
         newTree.add(15);
         newTree.add(37);
+        newTree.add(29);
+        newTree.add(7);
+        newTree.add(87);
+        newTree.add(55);
+        newTree.add(67);
+        newTree.add(99);
+        newTree.add(121);
+        newTree.add(94);
 
-        System.out.println(newTree.getRoot().getValue());
+        newTree.printTree(newTree.getRoot());
     }
 }

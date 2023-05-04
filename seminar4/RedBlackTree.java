@@ -2,9 +2,35 @@ package seminar4;
 
 public class RedBlackTree {
     private Node root;
+    private int n = 0;
 
     public Node getRoot() {
         return this.root;
+    }
+
+    private boolean isRoot(Node node) {
+        if (this.root.equals(node)) {
+            return true;
+        }
+        return false;
+    }
+
+    public void printTree(Node node) {
+        String isRoot = "";
+
+        if (node != null) {
+            if (isRoot(node)) {
+                isRoot = ", ROOT";
+            }
+            System.out.println(n++ + ": Node {" + node.toString() + isRoot + "}");
+        }
+
+        if (node.leftChild != null) {
+            printTree(node.leftChild);
+            if (node.rightChild != null) {
+                printTree(node.rightChild);
+            }
+        }
     }
 
     public boolean add(int value) {
@@ -43,7 +69,7 @@ public class RedBlackTree {
                     return result;
                 } else {
                     node.rightChild = new Node();
-                    node.rightChild.color = Color.RED; // __
+                    node.rightChild.color = Color.RED;
                     node.rightChild.value = value;
                     return true;
                 }
@@ -120,9 +146,13 @@ public class RedBlackTree {
             return this.value;
         }
 
+        public Color getColor() {
+            return this.color;
+        }
+
         @Override
         public String toString() {
-            return "Node(value = " + value + ", color = " + color + ")";
+            return "value: " + getValue() + ", color: " + getColor();
         }
     }
 
