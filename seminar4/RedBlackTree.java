@@ -3,6 +3,10 @@ package seminar4;
 public class RedBlackTree {
     private Node root;
 
+    public Node getRoot() {
+        return this.root;
+    }
+
     public boolean add(int value) {
         if (root != null) {
             boolean result = addNode(root, value);
@@ -106,11 +110,15 @@ public class RedBlackTree {
         node.color = Color.RED;
     }
 
-    private class Node {
+    class Node {
         private int value;
         private Color color;
         private Node leftChild;
         private Node rightChild;
+
+        public int getValue() {
+            return this.value;
+        }
 
         @Override
         public String toString() {
